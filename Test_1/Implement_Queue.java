@@ -15,7 +15,7 @@ public class Implement_Queue {
 		QueueNode front;
 		QueueNode rear;
 
-		void push(int a) {
+		void enqueue(int a) {
 			if (rear == null) {
 				rear = new QueueNode(a);
 				front = rear;
@@ -27,7 +27,7 @@ public class Implement_Queue {
 			System.out.println(a + " pushed into the queue!");
 		}
 
-		int pop() {
+		int dequeue() {
 			QueueNode temp = front;
 
 			if (temp == null) {
@@ -49,22 +49,30 @@ public class Implement_Queue {
 				return k;
 			}
 		}
-
+		boolean isEmpty() {
+			if(front == null) {
+				return true;
+			}
+			return false;
+		}
 	}
 
 	public static void main(String[] args) {
 		MyQueue q = new MyQueue();
-		q.push(10);
-		q.push(20);
-		q.push(30);
-		q.push(40);
-		q.push(50);
-		q.pop();
-		q.pop();
-		q.pop();
-		q.pop();
-		q.pop();
-		q.pop();
+		q.enqueue(10);
+		q.enqueue(20);
+		q.enqueue(30);
+		q.enqueue(40);
+		q.enqueue(50);
+		q.dequeue();
+		q.dequeue();
+		q.dequeue();
+		q.dequeue();
+		q.dequeue();
+		q.dequeue();
+		if(q.isEmpty() == true) {
+			System.out.println("Queue is Empty!!");
+		}
 	}
 
 }
